@@ -38,5 +38,32 @@ const all = async (req, res) => {
   return res.render("all_users", { users });
 };
 
+const createSession = (req, res) => {
+  //find the user
+  User.findOne({ email: req.body.email }, (err, user) => {
+    if (err) {
+      console.log("*** user not found");
+    }
+
+    if (user) {
+      //handle password mismatch
+
+      if (req.body.password !== user.password) {
+        console.log("incorrect password!");
+        return res.redirect("back");
+      } else {
+        res.cookie("user_id", user._id);
+        return res.redirect("/");
+      }
+      console.log("***user found");
+    }
+  });
+
+  //handle user found
+
+  //handle user not found
+};
+
 module.exports.register = register;
 module.exports.all = all;
+module.exports.createSession = createSession;

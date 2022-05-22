@@ -5,5 +5,13 @@
   </head>
   <body>
     <h1>Login page</h1>
+    <div class="form-container">
+      <form action="/users/createSession" method="POST">
+        <input type="text" name="email" placeholder="Enter email" />
+        <input type="password" name="password" placeholder="Enter password" />
+
+        <button type="submit">Login</button>
+      </form>
+    </div>
   </body>
 </html>
