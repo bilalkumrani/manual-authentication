@@ -10,6 +10,7 @@ const app = express();
 
 app.set("view engine", "ejs");
 app.set("views", path.resolve(__dirname, "views"));
+app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(homeRoute);
 app.use(express.static(path.resolve(__dirname, "assets")));
