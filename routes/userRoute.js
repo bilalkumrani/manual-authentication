@@ -10,7 +10,7 @@ const route = express.Router();
 
 route.post("/register", register);
 route.get("/all", all);
-route.post("/createSession", createSession);
+route.post("/createsession", createSession);
 route.get("/profile", profile);
 route.get("/signout", signout);
 
